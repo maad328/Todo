@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* App Container */
+.app-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app-container h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #e0e4e7;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.todo-input:focus {
+  border-color: #5e76e8;
+}
+
+.add-btn {
+  padding: 12px 20px;
+  background-color: #5e76e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #4c5fcb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* List Container */
+.list-container {
+  margin-top: 20px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9fafc;
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e4e7;
+  transition: box-shadow 0.3s ease;
+}
+
+.todo-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-text {
+  margin: 0;
+  font-size: 16px;
+  color: #4a4a4a;
+  word-wrap: break-word;
+}
+
+/* Actions Container */
+.actions-container {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #f7b924;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #e0a00d;
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .app-container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .input-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
