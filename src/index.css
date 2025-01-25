@@ -5,6 +5,8 @@ body {
   padding: 0;
   background-color: #f5f7fa;
   color: #333;
+  height: 100vh;
+  overflow: hidden; /* Prevent page overflow */
 }
 
 h1,
@@ -16,30 +18,33 @@ h3 {
 
 /* App Container */
 .app-container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 30px 20px;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
   background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.app-container h1 {
-  text-align: center;
-  font-size: 24px;
-  color: #4a4a4a;
-  margin-bottom: 20px;
-}
-
-/* Input Container */
-.input-container {
   display: flex;
-  gap: 12px;
-  margin-bottom: 25px;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input Container (Fixed Top Full Width) */
+.input-container {
+  width: 100%; /* Full width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between input and button */
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .todo-input {
-  flex: 1;
+  flex: 1; /* Take most of the space */
   padding: 12px 15px;
   border: 2px solid #e0e4e7;
   border-radius: 8px;
@@ -61,6 +66,7 @@ h3 {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Prevent the button from shrinking */
 }
 
 .add-btn:hover {
@@ -70,7 +76,11 @@ h3 {
 
 /* List Container */
 .list-container {
-  margin-top: 20px;
+  margin-top: 90px; /* Leave space for the fixed input container */
+  width: 100%;
+  max-height: calc(100vh - 120px); /* Adjust height dynamically */
+  overflow-y: auto; /* Enable scrolling for the list */
+  padding: 0 20px;
 }
 
 .todo-list {
@@ -88,11 +98,12 @@ h3 {
   padding: 15px 20px;
   border-radius: 10px;
   border: 1px solid #e0e4e7;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .todo-card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .todo-text {
@@ -100,6 +111,7 @@ h3 {
   font-size: 16px;
   color: #4a4a4a;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Actions Container */
@@ -140,17 +152,17 @@ h3 {
 
 /* Responsive Design */
 @media (max-width: 600px) {
-  .app-container {
-    margin: 20px auto;
-    padding: 20px;
-  }
-
   .input-container {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .todo-input {
+    margin-right: 0;
   }
 
   .add-btn {
-    width: 100%;
+    width: 100%; /* Full width for mobile devices */
   }
 }
